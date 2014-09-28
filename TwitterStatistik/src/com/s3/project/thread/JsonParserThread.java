@@ -26,7 +26,7 @@ public class JsonParserThread implements Runnable {
 	private String threadName;
 	private Boolean shutdown = Boolean.FALSE;
 	//int delay = 1000 * 60 * 2;
-	int delay = 1000;
+	int delay = 1000 * 10;
 	
     
 	public JsonParserThread(String name){

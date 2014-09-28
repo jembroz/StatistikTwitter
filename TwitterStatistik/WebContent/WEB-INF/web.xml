@@ -24,6 +24,10 @@
     <servlet-name>InputTwitterServlet</servlet-name>
     <url-pattern>/InputTwitterServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InputUserServlet</servlet-name>
+    <url-pattern>/InputUserServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>ThreadInitialize</servlet-name>
     <servlet-class>com.s3.project.thread.ThreadInitialize</servlet-class>

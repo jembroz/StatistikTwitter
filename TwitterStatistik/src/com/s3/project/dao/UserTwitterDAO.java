@@ -1,5 +1,9 @@
 package com.s3.project.dao;
 
+/*Author : Didit
+Date : 28-9-2014
+Description : Data Access Layer untuk table UserTweet*/
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

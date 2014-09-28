@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.s3.project.bean.UserBean;
 import com.s3.project.connection.ConnectionManager;
 
 public class RegisteredTweeterDAO {

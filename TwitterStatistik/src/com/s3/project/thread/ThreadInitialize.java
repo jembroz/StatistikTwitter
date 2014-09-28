@@ -9,14 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.s3.project.thread.JsonParserThread;
 
 public class ThreadInitialize extends HttpServlet{
-	 public void init() throws ServletException
+	
+	private static final long serialVersionUID = 6161841584108332050L;
+
+	public void init() throws ServletException
 	    {
 	          /// Automatically java script can run here
-	          System.out.println("************");
-	          System.out.println("*** Servlet Initialized successfully ***..");
-	          System.out.println("***********");
-	          JsonParserThread threadMy = new JsonParserThread("Thread Gw");
-	  		threadMy.start();
+	        System.out.println("************");
+	        System.out.println("*** Servlet Initialized successfully ***..");
+	        System.out.println("***********");
+	        /*JsonParserThread threadMy = new JsonParserThread("Thread Gw");
+	  		threadMy.start();*/
 
 	    }
 

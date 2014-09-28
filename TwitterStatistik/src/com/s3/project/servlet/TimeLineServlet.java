@@ -1,14 +1,11 @@
 package com.s3.project.servlet;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,14 +68,12 @@ public class TimeLineServlet extends HttpServlet {
                 System.out.println(fileName + " - " + status.getText());
             }
             System.out.print("\ndone.");
-            System.exit(0);
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.out.println("Failed to store tweets: " + ioe.getMessage());
         } catch (TwitterException te) {
             te.printStackTrace();
             System.out.println("Failed to get timeline: " + te.getMessage());
-            //System.exit(-1);
         }
 	}
 	

@@ -8,7 +8,7 @@
 <link href="js/dropdown-menu.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<form action="">
+<form action="InputUserServlet" method="post">
 <table border="1" width="800px" cellpadding="0" cellspacing="0">
 	<tr>
 		<td colspan="4" >
@@ -35,8 +35,13 @@
 	</tr>
 	<tr>
 		<td colspan="4">
-		<p>Twitter Statistik Application </br>
-		How are you to day?</p>
+		
+		Please input Application User Info <br/>
+		User Name : <input type="text" name="userName"/><br/>
+		Password : <input type="password" name="password"/><br/>
+		Nama Depan : <input type="text" name="firstName"/><br/>
+		Name Belakang : <input type="text" name="lastName"/><br/>
+		<input type="submit" value="Save">	
 		</td>
 	</tr>
 </table>

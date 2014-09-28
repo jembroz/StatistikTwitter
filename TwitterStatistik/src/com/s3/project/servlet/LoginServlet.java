@@ -1,9 +1,9 @@
 package com.s3.project.servlet;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import javax.servlet.ServletConfig;
+/*author : Didit
+Date : 28-9-2014
+Description : Servlet untuk menghandle Deskripsi
+*/
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +20,7 @@ import com.s3.project.dao.UserDAO;
 @WebServlet(name="LoginServlet",urlPatterns={"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
+	private static final long serialVersionUID = -686030824510868832L;
 
 public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			           throws ServletException, java.io.IOException {

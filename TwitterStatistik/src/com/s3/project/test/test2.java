@@ -51,7 +51,7 @@ public class test2 extends TestCase{
 				System.out.println("Tidak berhasil Create");
 			}
 			
-			UserTwitterBean user2 = new UserTwitterBean();
+			/*UserTwitterBean user2 = new UserTwitterBean();*/
 			/*user2 = UserTwitterDAO.getUser("jembrozUser");
 			System.out.println("Query User");
 			System.out.println(user2.getFirstName());

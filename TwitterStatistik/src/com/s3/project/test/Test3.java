@@ -1,5 +1,4 @@
 package com.s3.project.test;
-import sun.org.mozilla.javascript.internal.json.JsonParser;
 
 //Testing untuk Thread
 //Author Didit
