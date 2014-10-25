@@ -1,0 +1,10 @@
+1405327738827	Rename type 'HelloWorld'
+1405345234571	Rename resource 'Home.jsp'
+1405345255283	Rename type 'Hello'
+1405601050569	Move 1 resources to 'WEB-INF'
+1405601317913	Move 1 resources to 'WebContent'
+1405603831288	Move 'InvalidLogin.jsp' to 'WEB-INF'
+1405604457611	Move 'InvalidLogin.jsp' to 'WebContent'
+1405604502543	Rename resource 'InvalidLogin.jsp'
+1405749174027	Rename resource 'UserLogged.jsp'
+1405753717375	Delete element

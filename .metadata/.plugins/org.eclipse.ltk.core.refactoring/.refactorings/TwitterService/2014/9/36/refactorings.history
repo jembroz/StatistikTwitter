@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.s3.project.dao&apos; to &apos;com.s3.project.connection&apos;&#x0D;&#x0A;- Original project: &apos;TwitterService&apos;&#x0D;&#x0A;- Original element: &apos;TwitterService/src/com.s3.project.dao&apos;&#x0D;&#x0A;- Renamed element: &apos;TwitterService/src/com.s3.project.connection&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.s3.project.dao&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.s3.project.dao" name="com.s3.project.connection" qualified="false" references="true" stamp="1409653714644" textual="false" version="1.0"/>
+</session>

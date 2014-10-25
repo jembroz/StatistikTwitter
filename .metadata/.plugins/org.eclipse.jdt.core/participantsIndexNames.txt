@@ -1,0 +1,5 @@
+INDEX VERSION 1.126
+D:\Project\DesertasiS3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4089204960.index
+\TwitterStatistik\src
+D:\Project\DesertasiS3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3803188472.index
+\TwitterStatistik\src

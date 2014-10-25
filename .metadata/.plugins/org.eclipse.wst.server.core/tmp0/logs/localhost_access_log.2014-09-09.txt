@@ -1,0 +1,14 @@
+127.0.0.1 - - [09/Sep/2014:14:48:01 +0700] "GET / HTTP/1.1" 200 1130
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:14 +0700] "GET /TwitterStatistik/ HTTP/1.1" 200 505
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:21 +0700] "GET /TwitterStatistik/LoginServlet?un=didit&pw=didit HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:22 +0700] "GET /TwitterStatistik/Home.jsp HTTP/1.1" 200 749
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:29 +0700] "GET /TwitterStatistik/Register.jsp HTTP/1.1" 200 941
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:32 +0700] "GET /TwitterStatistik/TweetDeck.jsp HTTP/1.1" 200 750
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:33 +0700] "GET /TwitterStatistik/Home.jsp HTTP/1.1" 200 749
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:34 +0700] "GET /TwitterStatistik/Register.jsp HTTP/1.1" 200 941
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:36 +0700] "GET /TwitterStatistik/TweetDeck.jsp HTTP/1.1" 200 750
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:37 +0700] "GET /TwitterStatistik/Home.jsp HTTP/1.1" 200 749
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:44 +0700] "GET /TwitterStatistik/Register.jsp HTTP/1.1" 200 941
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:46 +0700] "GET /TwitterStatistik/InputTwitter.jsp HTTP/1.1" 200 423
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:49 +0700] "GET /TwitterStatistik/InputUser.jsp HTTP/1.1" 200 695
+0:0:0:0:0:0:0:1 - - [09/Sep/2014:14:48:53 +0700] "GET /TwitterStatistik/Home.jsp HTTP/1.1" 200 749

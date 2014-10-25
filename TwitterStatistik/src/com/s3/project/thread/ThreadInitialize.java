@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import com.s3.project.thread.JsonParserThread;
+import com.s3.project.thread.FetchTwittThread;
 
 public class ThreadInitialize extends HttpServlet{
 	
@@ -18,8 +19,10 @@ public class ThreadInitialize extends HttpServlet{
 	        System.out.println("************");
 	        System.out.println("*** Servlet Initialized successfully ***..");
 	        System.out.println("***********");
-	        /*JsonParserThread threadMy = new JsonParserThread("Thread Gw");
-	  		threadMy.start();*/
+	        JsonParserThread jsonParserThd = new JsonParserThread("Thread JSon Parser");
+	  		jsonParserThd.start();
+	  		FetchTwittThread fatchTwittThd = new FetchTwittThread("Thread Fetch Twitter");
+	  		fatchTwittThd.start();
 
 	    }
 
