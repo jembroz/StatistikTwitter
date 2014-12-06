@@ -45,13 +45,9 @@ public class FetchTwittThread implements Runnable {
 	        System.out.println("Saving public timeline.");
 	        
 	        try {
-	        	
-	        	
-	    		
 	    		// get the property value and print it out
 	    		String filePath = "D:/statuses";
 	    		
-	            //new File("statuses").mkdir();
 	            List<Status> statuses = twitter.getHomeTimeline();
 	            for (Status status : statuses) {
 	                String rawJSON = TwitterObjectFactory.getRawJSON(status);
@@ -67,6 +63,12 @@ public class FetchTwittThread implements Runnable {
 	            te.printStackTrace();
 	            System.out.println("Failed to get timeline: " + te.getMessage());
 	        }
+	        if (shutdown) break;
+			try {
+				Thread.sleep(delay);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
     	}
     }
     

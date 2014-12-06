@@ -7,18 +7,27 @@ From http://examples.javacodegeeks.com/core-java/json/java-json-parser-example/
 */
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.TwitterObjectFactory;
+import IndonesianNLP.IndonesianNETagger;
+import IndonesianNLP.IndonesianSentenceFormalization;
 
 import com.s3.project.bean.TwittBean;
 import com.s3.project.dao.TwittDAO;
+import com.s3.project.bean.TwittTaggerBean;
+import com.s3.project.dao.TwittTagDAO;
  
 public class JsonParserThread implements Runnable {
 
@@ -43,6 +52,7 @@ public class JsonParserThread implements Runnable {
     	while (shutdown.equals(Boolean.FALSE)){
 	    	System.out.println("Running " +  threadName );
 	    	
+	    	BufferedReader br = null;
 	    	try {
 	            File[] files = new File("D:/statuses").listFiles(new FilenameFilter() {
 	                public boolean accept(File dir, String name) {
@@ -54,8 +64,62 @@ public class JsonParserThread implements Runnable {
 	                Status status = TwitterObjectFactory.createStatus(rawJSON);
 	                System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
 	                String it = insertTwitter(status);
-	                System.out.println(it);
-	                /*file.delete();*/
+	                //System.out.println(it); //Untuk keperluan pengecekkan
+	                //Di formalize dulu
+	                
+	                IndonesianSentenceFormalization formalizer = new IndonesianSentenceFormalization();
+	        		String kicauFrml = formalizer.formalizeSentence(status.getText().toLowerCase());
+	        		String kicauFrmlCln = kicauFrml.replaceAll("[?`~!@#$%^&*()-_+={}|\\/.,><;:'\"â™¥â™Ç♥]", "");
+	        		
+
+	        		File fileInput = new File("inputSrc.txt");
+	        		File fileOutput = new File("hasilDst.arff");
+	        		
+	        		// if file doesnt exists, then create it
+	        		if (!fileInput.exists()) {
+	        			fileInput.createNewFile();
+	        		}
+	        		if (!fileOutput.exists()) {
+	        			fileOutput.createNewFile();
+	        		}
+
+	        		FileWriter fw = new FileWriter(fileInput.getAbsoluteFile());
+	        		BufferedWriter bw = new BufferedWriter(fw);
+	        		bw.write(kicauFrmlCln);
+	        		bw.close();
+	        		
+	        		IndonesianNETagger inner = new IndonesianNETagger();
+	                inner.NETagFile("inputSrc.txt", "hasilDst.arff");
+	                
+	                
+	                br = new BufferedReader(new FileReader("hasilDst.arff"));
+	                String sCurrentLine;
+	                int iCounter1 = 1;//Counter untuk setiap baris dalam file
+	        		while ((sCurrentLine = br.readLine()) != null) {
+	        			System.out.println(sCurrentLine);
+	        			TwittTaggerBean twtTagBean = new TwittTaggerBean();
+	        			twtTagBean.setTwittID((int) status.getId());
+	        			twtTagBean.setNourut(iCounter1);
+	        			
+	        			int iCounter2 = 1;//Counter untuk setiap pemisahan kata setelah di split oleh posttagging
+	        			for(String retrieval: sCurrentLine.split(",")){
+	        				if(iCounter2==1){
+	        					twtTagBean.setDeskripsi(retrieval);//Deskripsi
+	        				}else if(iCounter2==2){
+	        					twtTagBean.setJenisDesc(retrieval);//Jenis Deskripsi
+	        				}else{
+	        					twtTagBean.setKategori(retrieval);//Kategori
+	        				}
+	        				iCounter2++;
+	        			}
+	        			Date date = new Date();
+	        			twtTagBean.setTanggal(new Timestamp(date.getTime()));
+	        			Boolean twittTagDAO = TwittTagDAO.InsertTwittTagger(twtTagBean);
+	        			System.out.println("Insert TwittTagger : " + twittTagDAO);
+	        			iCounter1++;
+	        		}
+	                
+	        		file.getAbsoluteFile().delete();
 	            }
 	        } catch (IOException ioe) {
 	            ioe.printStackTrace();
@@ -63,7 +127,13 @@ public class JsonParserThread implements Runnable {
 	        } catch (TwitterException te) {
 	            te.printStackTrace();
 	            System.out.println("Failed to get timeline: " + te.getMessage());
-	        }
+	        }finally {
+				try {
+					if (br != null)br.close();
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
 	    	if (shutdown) break;
 			try {
 				Thread.sleep(delay);
@@ -134,5 +204,6 @@ public class JsonParserThread implements Runnable {
     	}
     	return message;
     }
+    
 }
 

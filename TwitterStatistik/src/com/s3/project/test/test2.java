@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 import com.s3.project.connection.*;
 import com.s3.project.bean.UserTwitterBean;
-import com.s3.project.dao.UserTwitterDAO;
+import com.s3.project.dao.UserTwitterBioDAO;
 
 public class test2 extends TestCase{
 
@@ -44,12 +44,12 @@ public class test2 extends TestCase{
 			assertEquals("23-9-2014", userTwitter.getCreated_at());
 			assertEquals(new Integer(15), userTwitter.getStatuses_count());
 			
-			ud = UserTwitterDAO.CreateUser(userTwitter);
+			/*ud = UserTwitterBioDAO.CreateUser(userTwitter);
 			if(ud){
 				System.out.println("Berhasil Create");
 			}else {
 				System.out.println("Tidak berhasil Create");
-			}
+			}*/
 			
 			/*UserTwitterBean user2 = new UserTwitterBean();*/
 			/*user2 = UserTwitterDAO.getUser("jembrozUser");
@@ -59,7 +59,7 @@ public class test2 extends TestCase{
 			System.out.println(user2.getUsername());
 			System.out.println(user2.getPassword());
 			*/
-			boolean deleteUser = UserTwitterDAO.DeleteUser(userTwitter);
+			boolean deleteUser = UserTwitterBioDAO.DeleteUser(userTwitter);
 			if(deleteUser){
 				System.out.println("berhasil Delete");
 			}else{

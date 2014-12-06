@@ -27,7 +27,11 @@
 				<li><a href="InputUser.jsp">Register Application User</a></li> 
 			</ul>
 		
-		    <li><a href="TweetDeck.jsp">Tweet Deck</a></li>
+		    <li class="list"><a href="#">Enquiry</a>
+		    <ul class="nav-sub">
+		    	<li><a href="ShowUserTwitter.jsp">Show User Twitter</a></li>
+		    	<li><a href="TweetDeck.jsp">Tweet Deck</a></li>
+		    </ul>
 		    <li><a href="#">About</a></li>
 		    <li><a href="#">Logout</a></li>
 		 </ul>
